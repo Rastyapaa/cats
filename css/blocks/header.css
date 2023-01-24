@@ -1,0 +1,13 @@
+.header {
+    box-shadow: 0 0 10px 0 var(--box-shadow-color);
+    background-color: var(--bg-main-color);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

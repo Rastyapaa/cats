@@ -1,0 +1,83 @@
+.form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.form__image {
+    grid-row: span 3;   
+    background-image: url("../../images/Котик.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.form__textarea {
+    grid-row: span 2;
+    resize: none;
+    height: 100%;
+}
+
+.form__btn {
+    font-size: 14px;
+    width: 100%;
+}
+
+.form__input {
+    outline: none;
+    background-color: var(--bg-secondary-color);
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--outline-color);
+    border-radius: 4px;
+    padding: 8px 8px;
+    color: var(--text-secondary-color);
+    appearance: none;
+}
+
+.form__input:focus {
+    border: 1px solid var(--accent-color);
+    
+    
+
+}
+
+.form__fake-checkbox {
+    font-size: 22px;
+}
+
+.form__checkbox-wrap {
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    padding: 5px 10px;
+    gap: 10px;
+    transition: background-color, 0.25s ease-in;
+}
+.form__checkbox-wrap:hover {
+    background-color:var(--bg-secondary-color);
+    filter: drop-shadow(5px 5px 5px var(--box-shadow-color));
+}
+.form__checkbox {
+    appearance: none;
+    position: absolute;
+}
+
+.form__checkbox:focus~.form__fake-checkbox,
+.form__checkbox:focus~.form__label {
+    color: var(--text-secondary-color);
+}
+
+.form__checkbox:checked~.form__fake-checkbox,
+.form__checkbox:checked~.form__label {
+    color: var(--tertiary-color);
+}
+
+.form__checkbox:checked:focus~.form__fake-checkbox,
+.form__checkbox:checked:focus~.form__label {
+    opacity: 0.6;
+}
