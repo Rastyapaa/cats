@@ -20,6 +20,13 @@ class Popup{
         this.popup.classList.remove('popup_active')
         document.removeEventListener('keyup', this._handleEscUp)
     }
+
+    setContent(contentNode) {
+        const containerContent = this.popup.querySelector('.popup__content');
+        containerContent.innerHTML = '';
+        containerContent.append(contentNode);
+    }
+    
     setEventListener() {
         this.popup.addEventListener('click', (evt) => {
             if (evt.target.classList.contains(this._className) || evt.target.closest('.popup__close')) {
