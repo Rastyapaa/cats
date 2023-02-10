@@ -48,7 +48,6 @@
     color: var(--text-secondary-color);
     cursor: pointer;
 }
-
 .cat-info__favourite_active {
     color: var(--tertiary-color)
 }

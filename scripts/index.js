@@ -63,12 +63,7 @@ function checkLocalStorage() {
 }
 
 
-// api.getAllCats().then((data) => {
-//         data.forEach(catData => {
-//         createCat(catData)
-//         })
-        
-// })
+
 
 function handleFormAddCat(e) {
     e.preventDefault()
