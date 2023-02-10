@@ -1,12 +1,14 @@
 class Card {
-    constructor(dataCat, selectorTemplate) {
-        this.dataCat = dataCat;
-        this.selectorTemplate = selectorTemplate;
+    constructor(dataCat, selectorTemplate, handleCatImage, handleCatTitle) {
+        this._dataCat = dataCat;
+        this._selectorTemplate = selectorTemplate;
+        this._handleCatImage = handleCatImage;
+        this._handleCatTitle = handleCatTitle;
         }
 
 
 _getTemplate() {
-    return document.querySelector(this.selectorTemplate).content.querySelector('.card');
+    return document.querySelector(this._selectorTemplate).content.querySelector('.card');
 }
 
 getElement() {
@@ -15,21 +17,39 @@ getElement() {
     this.cardImage = this.element.querySelector('.card__image');
     this.cardLike = this.element.querySelector('.card__like');
 
-    this.cardTitle.textContent = this.dataCat.name;
-    this.cardImage.src = this.dataCat.img_link;
+    this.cardTitle.textContent = this._dataCat.name;
+    this.cardImage.src = this._dataCat.image;
 
-    if(this.dataCat.favourite){
+    if(this._dataCat.favourite){
         this.cardLike.classList.toggle('card__like_active')
     } 
     else this.cardLike.remove('card__like_active')
-
+    this.setEventListener()
     return this.element
 }
 
-// setElement() {
+getData () {
+    return this._dataCat;
+}
 
-// }
+getId() {
+    return this._dataCat.id;
+}
+
+setData(newData) {
+    this._dataCat = newData;
+}
+
+deleteView() {
+    this.element.remove()
+    this.element = null;
+}
+
+setEventListener() {
+    this.cardImage.addEventListener('click', () => this._handleCatImage(this._dataCat));
+    this.cardTitle.addEventListener('click', () => this._handleCatTitle(this));
+}
 
 }
-// const cat = new Card(cats[0], '#card-template')
-// cat.getElement()
+
+

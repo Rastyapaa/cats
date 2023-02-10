@@ -17,32 +17,11 @@
         <div class="container header__container">
             <a href="#" class="logo"><i class="fa-sharp fa-solid fa-paw" ></i>Пушистые мурчики</a>
             <button class="btn" id="add"><i class="fa-solid fa-plus"></i></button>
+            <button class="btn" id="loveCats">Вступить в клуб</button>
         </div>
     </header>
     <main class="main container">
-        <!-- <section class="carousel">
-            <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-        </section> -->
+       
         <section class="cards">            
             <!-- <h2 class="visually-hidden">Список котиков</h2>
              <div class="card">
@@ -81,12 +60,22 @@
                     <span class="form__label">Любимчик</span>
                     <span class="form__fake-checkbox"><i class="fa-regular fa-circle-check"></i></span>
                 </label>
-                <input type="url" class="form__input form__input_image" name="img_link" placeholder="Ссылка на фото">
+                <input type="url" class="form__input form__input_image" name="image" placeholder="Ссылка на фото">
                 <button type="submit" class="form__btn btn">Добавить котика</button>
             </form>
         </div>
     </div>
 
+    <div class="popup popup-login">
+        <div class="popup__container" >
+            <button class="popup__close btn"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Любишь котиков?</h2>
+            <form class="form" id="popup-form-login">
+                <input type="text" class="form__input" name="name" required placeholder="Назови свое имя">
+                <button type="submit" class="form__btn btn">Войти в клуб</button>
+            </form>
+        </div>
+    </div>
     <template id="card-template">
         <div class="card">
             <img src="#" alt="Изабражение" class="card__image">
@@ -94,11 +83,51 @@
             <button class="card__like" aria-label="Поставить лайк"><i class="fa-solid fa-heart fa-2x"></i></button>
         </div>
     </template>
+
+    <div class="popup popup-cat-info">
+        <div class="popup__container" >
+            <button class="popup__close btn popup__close_external"><i class="fa-solid fa-xmark"></i></button>
+           <div class="popup__content"></div>
+        </div>
+    </div>
+
+    <div class="popup popup-image">
+        <div class="popup__container" >
+            <button class="popup__close btn popup__close_external"><i class="fa-solid fa-xmark"></i></button>
+            <img src="#" class="popup__image" alt="Изображение">
+        </div>
+    </div>
+
+    <template id="cats-info-template">
+        <div class="cat-info">
+            <button class="cat-info__edited"><i class="fa-regular fa-pen-to-square"></i>Редактировать</button>
+            <button class="cat-info__saved cat-info__saved_hidden"><i class="fa-regular fa-pen-to-square"></i>Сохранить</button>
+            <button class="cat-info__deleted"><i class="fa-solid fa-trash"></i>Удалить</button>
+
+            <img src="#" class="cat-info__image" loading="lazy">
+            <span class="cat-info__id">"3101"</span>
+            <div class="cat-info__title">
+                <h2 class="cat-info__name"></h2>
+                <button class="cat-info__favourite"><i class="fa-solid fa-heart fa-2x"></i></button>
+            </div>
+            <span class="cat-info__rate">"12"</span>
+            <div class="cat-info__age">
+                <span class="cat-info__age-val">"возраст"</span>
+                <span class="cat-info__age-text">"3"</span>
+            </div>
+            <p class="cat-info__desc"></p>
+        </div>
+    </template>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/js-cookie@3.0.1/dist/js.cookie.min.js" defer></script>
     <script src="./scripts/cats.js" defer></script>
     <script src="./scripts/card.js" defer></script>
     <script src="./scripts/popup.js" defer></script>
+    <script src="./scripts/api.js" defer></script>
+    <script src="./scripts/popup-image.js" defer></script>
+    <script src="./scripts/cats-info.js" defer></script>
     <script src="./scripts/index.js" defer></script>
+    
 </body>
 </html>
